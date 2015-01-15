@@ -19,7 +19,7 @@ module DeviseTokenAuth
 
       @resource = resource_class.where(q).first
 
-      if @resource and valid_params? and @resource.valid_password?(resource_params[:password]) and @resource.confirmed?
+      if @resource and valid_params? and @resource.valid_password?(resource_params[:password]) # and @resource.confirmed?
         # create client id
         @client_id = SecureRandom.urlsafe_base64(nil, false)
         @token     = SecureRandom.urlsafe_base64(nil, false)
